@@ -1,51 +1,6 @@
 # 🧠 Primordial Brain — Setup Guide
 
-> A step-by-step guide to scaffolding your AI-powered primordial brain using **Obsidian** and **Claude Code**.
-
----
-
-## Prerequisites
-
-Before you begin, install the following:
-
-1. **[Obsidian](https://obsidian.md/)** — Your knowledge base viewer and editor
-2. **[Claude Code](https://www.claude.com/)** — Your AI assistant for organizing knowledge
-
----
-
-## The Big Picture
-
-This is the objective we're trying to achieve:
-
-```
- ┌────────────────────────┐      ┌────────────────────────┐      ┌──────────────────────────┐
- │  1. YOUR MESSY NOTES   │      │   2. CLAUDE ORGANISES  │      │  3. YOUR PRIMORDIAL BRAIN │
- │  ────────────────────  │      │   ───────────────────  │      │  ───────────────────────  │
- │                        │      │                        │      │                           │
- │   raw/                 │      │   Reads raw/, follows  │      │   wiki/                   │
- │   • claude-chat.md     │ ───► │   rules in CLAUDE.md,  │ ───► │   • index.md              │
- │   • chatgpt-chat.md    │      │   writes wiki/         │      │   • concepts/             │
- │   • meeting-notes.md   │      │                        │      │   • people/               │
- │   • notion-export.md   │      │   Commands you run:    │      │   • projects/             │
- │                        │      │     /ingest  /query    │      │                           │
- │   YOU drop notes here. │      │     /lint    /log      │      │   YOU read here, in       │
- │                        │      │                        │      │   Obsidian.               │
- └────────────────────────┘      └────────────────────────┘      └──────────────────────────┘
-
-       scattered across               turns mess into               ask questions, spot
-       5 different apps               linked knowledge              patterns, never lose
-                                                                    an idea again
-```
-
----
-
-> [!TIP]
-> **For humans:** You can skip reading the steps below and just run this single prompt in Claude Code — it will handle everything automatically. Then jump straight to [Step 3](#step-3--verify-your-setup) when done.
-> ```
-> Review @Welcome.md and proceed with implementing the required steps.
-> ```
-
----
+> Follow these steps to scaffold your AI-powered knowledge base using **Obsidian** and **Claude Code**.
 
 ## Step 1 — Scaffold the Vault Structure
 
@@ -173,4 +128,5 @@ List the slash commands available in /.claude/commands folder and tell me the ru
 
 ---
 
-> 🎉 **You're all set!** Start dropping files into `raw/` and run `/ingest` to build your primordial brain.
+> [!TIP]
+> 🎉 **You're all set!** Drop files into `raw/` and run `/ingest` to start building your primordial brain.
