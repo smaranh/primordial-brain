@@ -59,3 +59,8 @@ Once set up, you'll have four commands available in Claude Code:
 | `/query`   | Synthesise an answer from the wiki                       |
 | `/lint`    | Run a health check — find broken links, orphans, gaps   |
 | `/log`     | Append a timestamped note to `wiki/log.md`              |
+
+---
+
+## Inspired by NextWork
+Creating a **[second brain](https://learn.nextwork.org/grateful_red_timid_starfruit/docs/ai-second-brain-claude-code)**.
