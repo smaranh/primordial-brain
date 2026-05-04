@@ -30,7 +30,7 @@ Add a brief README.md in every folder you create (including each raw/ subfolder)
 
 ---
 
-## Step 2 — Define Schema & Slash Commands
+## Step 2 — Define Schema & Skills
 
 ### 2a. Create `CLAUDE.md`
 
@@ -69,15 +69,16 @@ Create a CLAUDE.md file for my primordial brain vault with these four sections:
 > [!IMPORTANT]
 > Answer the questions Claude asks you — your responses shape the **Domain Context** section of `CLAUDE.md`.
 
-### 2b. Create Slash Commands
+### 2b. Create Skills
 
-Run the following prompt to generate four slash commands:
+Run the following prompt to generate four skills:
 
 ```
-Create a .claude/commands/ folder inside my current working directory (this vault root, next to CLAUDE.md, raw/, and wiki/). Do NOT create it anywhere else. Add four slash-command files inside that folder. Each file should start with a short frontmatter block (description, argument-hint) and then the prompt body.
+Create a .claude/skills/ folder inside my current working directory (this vault root, next to CLAUDE.md, raw/, and wiki/). Do NOT create it anywhere else. Each skill lives in its own subfolder with a SKILL.md file. Each SKILL.md should start with a YAML frontmatter block (name, description, and argument-hint where relevant) followed by the prompt body.
 
-1. .claude/commands/ingest.md
-   Description: Ingest new files from raw/ into wiki/.
+1. .claude/skills/ingest/SKILL.md
+   name: ingest
+   description: Ingest new files from raw/ into wiki/.
    Prompt body should instruct Claude to:
    - For each unread file in raw/ (skip anything already summarised):
      read it, write a source-summary page in wiki/, create or update
@@ -86,9 +87,10 @@ Create a .claude/commands/ folder inside my current working directory (this vaul
    - Process 5-10 sources thoroughly per run. If $ARGUMENTS is provided,
      limit to that many sources.
 
-2. .claude/commands/query.md
-   Description: Synthesise an answer from the wiki.
-   Argument-hint: the question to answer
+2. .claude/skills/query/SKILL.md
+   name: query
+   description: Synthesise an answer from the wiki.
+   argument-hint: the question to answer
    Prompt body should instruct Claude to:
    - Read wiki/index.md and the pages most relevant to $ARGUMENTS.
    - Synthesise an answer grounded in the wiki, cite every claim by
@@ -96,8 +98,9 @@ Create a .claude/commands/ folder inside my current working directory (this vaul
    - If the synthesis reveals a new connection, propose a wiki update
      but do not write it without confirmation.
 
-3. .claude/commands/lint.md
-   Description: Run a health check on the wiki.
+3. .claude/skills/lint/SKILL.md
+   name: lint
+   description: Run a health check on the wiki.
    Prompt body should instruct Claude to:
    - Scan wiki/ for broken [[wiki-links]], orphan pages, pages missing
      required frontmatter, stale pages (30+ days untouched), and
@@ -105,28 +108,31 @@ Create a .claude/commands/ folder inside my current working directory (this vaul
    - Report findings as a structured list. Do not fix anything yet,
      ask for permission first.
 
-4. .claude/commands/log.md
-   Description: Append a timestamped note to wiki/log.md.
-   Argument-hint: the thought or note to capture
+4. .claude/skills/log/SKILL.md
+   name: log
+   description: Append a timestamped note to wiki/log.md.
+   argument-hint: the thought or note to capture
    Prompt body should instruct Claude to:
    - Append a timestamped entry containing $ARGUMENTS to wiki/log.md.
    - If the note mentions a project, person, or concept that has a
      wiki page, update that page too. Otherwise do not create new pages.
 
-Create all four files now.
+Create all four SKILL.md files now.
 ```
 
 ---
 
 ## Step 3 — Verify Your Setup
 
-Restart Claude Code to pick up the new slash commands, then run the following test prompt:
+Restart Claude Code to pick up the new skills, then run the following test prompt:
 
 ```
-List the slash commands available in /.claude/commands folder and tell me the rules from CLAUDE.md in one paragraph each. Add a workflow section to the output with one line description of each command.
+List the skills available in .claude/skills/ and tell me the rules from CLAUDE.md in one paragraph each. Add a workflow section to the output with one line description of each skill.
 ```
 
 ---
 
 > [!TIP]
 > 🎉 **You're all set!** Drop files into `raw/` and run `/ingest` to start building your primordial brain.
+>
+> Skills are invoked with `/skill-name` (e.g. `/ingest`, `/query`, `/lint`, `/log`).
