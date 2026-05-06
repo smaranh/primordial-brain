@@ -136,3 +136,28 @@ List the skills available in .claude/skills/ and tell me the rules from CLAUDE.m
 > 🎉 **You're all set!** Drop files into `raw/` and run `/ingest` to start building your primordial brain.
 >
 > Skills are invoked with `/skill-name` (e.g. `/ingest`, `/query`, `/lint`, `/log`).
+
+---
+
+## Step 4 — Make It Yours (Optional)
+
+This vault is a template. You can keep using it as-is, or spin it off into a named, private GitHub repo tied to your specific domain — while leaving the original `primordial-brain` folder intact to clone again later.
+
+Run the following prompt:
+
+```
+/personalize
+```
+
+Claude will ask for a new folder name, then:
+
+1. Creates a new folder with your chosen name
+2. Preserve the `primordial-brain` template as a `upstream` remote
+3. Create a new **private** GitHub repo under your account
+4. Push your vault and set `origin` to the new repo
+
+> [!IMPORTANT]
+> After the script completes, **close Claude Code and reopen it pointing at the renamed folder**. Claude Code's working directory is set at launch and won't follow a rename automatically.
+
+> [!NOTE]
+> Requires the [GitHub CLI](https://cli.github.com/) (`gh`) to be installed and authenticated. Run `gh auth status` to check.
